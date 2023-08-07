@@ -3,9 +3,434 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dakhil Madrasah</title>
+    <title>দাখিল মাদ্রাসা</title>
+    <!-- tailwind & daisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.4.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- lato google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Open+Sans:wght@400;600;700;800&family=Roboto:wght@400;500;700;900&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- font awosome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.maateen.me/kalpurush/font.css" rel="stylesheet">
+
+    <!-- tailwind custom color -->
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                clifford: '#da373d',
+              }
+            }
+          }
+        }
+      </script>
+
+    <style>
+        .font-lato{
+            font-family: 'Lato', sans-serif;
+        }
+
+        .slideshow-container {
+            width: 60%;
+            height: auto;
+            position: absolute;
+            left: 50%;
+            top:60%;
+            transform: translate(-30%, -25%);
+            box-shadow: 1px 2px 5px 5px black;
+            background-size: cover;
+            box-sizing: border-box;
+
+       }
+    </style>
 </head>
-<body>
+<body class="px-24 pt-5 bg-orange-50">
+    <header>
+        <div class="flex content-center" > 
+            <img class="w-24 mr-3" src="./images/logo2.png" alt=""> 
+            <div class="">
+                <h2 class="text-4xl text-center">দাখিল মাদ্রাসা, ঢাকা।</h2>
+                <p class="text-2xl text-center items-center content-center">Dakhil Madrasah, Dhaka.</p>
+            </div>
+        </div>
+
+        <nav class="bg-purple-950 px-4 justify-between">
+            <div class="justify-between">
+            <div class="navbar bg-purple-900 my-5 px-4 justify-between">
+                
+                <div class="navbar-center hidden lg:flex">
+                  <ul class="menu menu-horizontal px-1 text-white text-base font-medium">
+                    <li><a><img class="w-8" src="./images/home.png" alt=""></a></li>
+                    <li><a>আমাদের সম্পর্কে</a></li>
+                    <li><a>একাডেমিক</a></li>
+                    <li><a>ভর্তি</a></li>
+                    <li><a>কো-কারিকুলার</a></li>
+                    <li><a>গ্যালারী</a></li>
+                    <li><a>যোগাযোগ</a></li>
+                  </ul>
+                </div>
+                <div><a class="px-1 text-white text-base font-medium">Admin</a></div>
+            </div>
+                <div class="navbar-start lg:hidden">
+                  <div class="dropdown">
+                    <label tabindex="0" class="btn btn-ghost lg:hidden">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                    </label>
+                    <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                      <li><a><img src="./images/home.png" alt=""></a></li>
+                      <li><a>আমাদের সম্পর্কে</a></li>
+                    <li><a>একাডেমিক</a></li>
+                    <li><a>ভর্তি</a></li>
+                    <li><a>কো-কারিকুলার</a></li>
+                    <li><a>গ্যালারী</a></li>
+                    <li><a>যোগাযোগ</a></li>
+                    </ul>
+                  </div>
+                 
+                </div>
+
+              </div>
+        </nav>
+          
+              <div>
+                <div class="slideshow-container">
+   
+                <!-- Full-width images with number and caption text -->
+                
+                <div class="mySlides fade"><img src="./images/rsz_1header_1.jpg" style="width:100%"></div>    
+                <div class="mySlides fade"><img src="./images/rsz_header_2.jpg" style="width:100%"></div>
+                <div class="mySlides fade"><img src="./images/rsz_header_3.jpg" style="width:100%"></div>
+                
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="plusSlides(-1)"></a>
+                <a class="next" onclick="plusSlides(1)"></a>
+              </div>
+              <br>
+              
+              <!-- The dots/circles -->
+              <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                
+              </div>
+              
+            
+              <script>
+                let slideIndex = 0;
+                showSlides();
+                
+                function showSlides() {
+                  let i;
+                  let slides = document.getElementsByClassName("mySlides");
+                  let dots = document.getElementsByClassName("dot");
+                  for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";  
+                  }
+                  slideIndex++;
+                  if (slideIndex > slides.length) {slideIndex = 1}    
+                  for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                  }
+                  slides[slideIndex-1].style.display = "block";  
+                  dots[slideIndex-1].className += " active";
+                  setTimeout(showSlides, 4000); // Change image every 4 seconds
+                }
+                </script>
+                </div>
+
+              
+                <div class="card w-72 bg-cyan-800 shadow-xl shadow-slate-400 translate-y-6">
+                  <figure><img class="rounded-full w-48 mt-6" src="./images/rsz_2principal.jpg" alt="Super" /></figure>
+                  <div class="card-body text-white">
+                    <h2 class="card-title">প্রতিষ্ঠান প্রধান</h2>
+                    <p>জনাব মোঃ আব্দুল্লাহ আল জাবের
+                      অধ্যক্ষ, দাখিল মাদ্রাসা
+                      </p>
+                      <p>মোবাইল: ০১৭০০০০০০০০
+                        </p>
+                  </div>
+                </div>
+                
+
+              
+
+  
+    </header>
+
+    
+    <main>
+
+
+        <!-- deal of the day section starts -->
+  
+        <!-- About Start  -->
+	<section class="my-24 bg-lime-100">
+<hr>
+    <h2 class="font-extrabold text-4xl text-center bg-cyan-800 text-white">আমাদের সম্পর্কে</h2>
+<hr>
+		<div class="flex gap-8"> 
+			<img class="w-2/6 h-72 mt-48" src="./images/principal.jpg">
+
+			<div class="mt-6">
+
+				<p> আলহামদুলিল্লাহি রব্বিল আলামীন। ওয়াস্ সালাতু আস্ সালামু আ‘লা নাবিয়্যিল কারিম। ওয়া আ‘লা আলিহি ওয়া আসহাবিহি ওয়ান্নাসি আজমাঈন।
+          
+          </p>
+				<br><p> “তা’মীরুল মিল্লাত ট্রাস্ট” পরিচালিত তা’মীরুল মিল্লাত কামিল মাদরাসা একটি যুগশ্রেষ্ঠ্য দ্বীনি শিক্ষা প্রতিষ্ঠান। দেশের দ্বিমুখী শিক্ষা ব্যবস্থার প্রেক্ষাপটে ইসলামী ও আধুনিক শিক্ষার বাস্তব সমন্বয় সাধন করে ইসলামী আদর্শের বুনিয়াদে এই প্রতিষ্ঠানটি গড়ে তোলা হয়েছে। ইসলামী জীবনদর্শন, সংস্কৃতি, ঐতিহ্য, মূল্যবোধ, অর্থনীতি, সমাজনীতি ও আন্তর্জাতিকবাদের সম্যক ধারণা দিয়ে মুসলিম সন্তানদেরকে আদর্শ নাগরিক রূপে গড়ে তোলা, বিশেষ করে নৈতিক অবক্ষয় থেকে তরুন সমাজকে রক্ষা করে চারিত্রিক উৎকর্ষ ও মূল্যবোধ তৈরীর বাস্তব উদ্যোগই হচ্ছে- “তা’মীরুল মিল্লাত কামিল মাদ্রাসা”। </p>
+				<br><p> ১৯৬৩ সালের একটি ঐতিহাসিক মূহুর্তে মাদরাসাটির শুভ যাত্রা শুরু হয়। কালের বিবর্তনে মহান আল্লাহ্‌র মেহেরবাণীতে আজ তা পত্র-পল্লবে সুশোভিত হয়ে বিরাট মহীরূহে পরিণত হয়েছে। মানসম্মত শিক্ষা ও নববী আদর্শ বিস্তারে তা‘মীরুল মিল্লাত কামিল মাদরাসা যখন সফলতার সাথে এগিয়ে চলেছে তখন দেশবাসির দাবী অনুযায়ী টঙ্গীতে আরো একটি বালক ও বালিকা ক্যাম্পাস এবং ঢাকার অদূরে মাতুয়াইলে একটি স্বতন্ত্র মহিলা ক্যাম্পাস করা হয়। বর্তমানে মীরহাজিরবাগ মূল ক্যাম্পাসের সাথে আলাদা বালিকা শাখা চালু করা হয়েছে। ইসলামি আরবি বিশ্ববিদ্যালয়ের অধীনে ২০১০ সাল থেকে দুটি বিষয়ে ৪ বছর মেয়াদী ফাযিল সম্মান (অনার্স) কোর্স ও ১ বছর মেয়াদী মাস্টার্স খোলা হয়েছে।
+        </p>
+			    <br><p style="color:red; font-size:20px;">যুগের চাহিদার সাথে সংগতি রেখে দাখিল ও আলিম স্তরে বিজ্ঞান ও আইসিটি বিভাগ এবং কামিল এম.এ শ্রেণীতে হাদীস, তাফসীর, ফিকহ ও আদব বিভাগ চালু করা হয়েছে। বাংলাদেশ মাদ্রাসা শিক্ষা বোর্ডের অধীনে অনুষ্ঠিত সকল পরীক্ষায় “তা’মীরুল মিল্লাত কামিল মাদ্রাসার” সাফল্য উল্লেখযোগ্য। বিগত বছরগুলোতে বাংলাদেশের সেরা দশ শিক্ষা প্রতিষ্ঠানের তালিকায় প্রতিষ্ঠানটি শীর্ষ স্থানে থাকার গৌরব অর্জন করতে সক্ষম হয়েছে, আলহামদুলিল্লাহ। </p>
+			
+			</div>
+		</div>
+	</section>
+	<!-- About End  -->
+  <!-- <a href="#my_modal_5" class="btn">Apple</a> -->
+  <div class="modal" id="my_modal_5">
+    <div class="modal-box items-center w-80">
+          <figure><img class="pl-16" src="./images/fruit6.png" alt="Apple" /></figure>
+          <p class="text-base font-semibold pb-4 text-center">Apple</p>
+          <p class="text-center">Professional employees are there for you to pick the most amazing and fresh fruits.</p>
+          <img class="pb-4 pl-10" src="./images/Group 24.png" alt="">
+      <div class="modal-action">
+        <a href="#" class="btn normal-case">Close</a>
+       <a href="#" class="btn btn-error normal-case">Buy Now</a>
+      </div>
+    </div>
+  </div>
+     
+      
+  <!-- <a href="#my_modal_6" class="btn">Orange</a> -->
+  <div class="modal" id="my_modal_6">
+    <div class="modal-box items-center w-80">
+          <figure><img class="pl-14" src="./images/fruit7.png" alt="Orange" /></figure>
+          <p class="text-base font-semibold pb-4 text-center">Orange</p>
+          <p class="text-center">Professional employees are there for you to pick the most amazing and fresh fruits.</p>
+          <img class="pb-4 pl-10" src="./images/Group 24.png" alt="">
+      <div class="modal-action">
+        <a href="#" class="btn normal-case">Close</a>
+       <a href="#" class="btn btn-error normal-case">Buy Now</a>
+      </div>
+    </div>
+  </div>
+    
+      
+  <!-- <a href="#my_modal_7" class="btn">Red Dragon</a> -->
+  <div class="modal" id="my_modal_7">
+    <div class="modal-box items-center w-80">
+          <figure><img class="pl-14" src="./images/fruit8.png" alt="Red Dragon" /></figure>
+          <p class="text-base font-semibold pb-4 text-center">Red Dragon</p>
+          <p class="text-center">Professional employees are there for you to pick the most amazing and fresh fruits.</p>
+          <img class="pb-4 pl-10" src="./images/Group 24.png" alt="">
+      <div class="modal-action">
+        <a href="#" class="btn normal-case">Close</a>
+       <a href="#" class="btn btn-error normal-case">Buy Now</a>
+      </div>
+    </div>
+  </div>
+     
+      
+  <!-- <a href="#my_modal_8" class="btn">Banana</a> -->
+  <div class="modal" id="my_modal_8">
+    <div class="modal-box items-center w-80">
+          <figure><img class="pl-14" src="./images/fruit9.png" alt="Banana" /></figure>
+          <p class="text-base font-semibold pb-4 text-center">Banana</p>
+          <p class="text-center">Professional employees are there for you to pick the most amazing and fresh fruits.</p>
+          <img class="pb-4 pl-10" src="./images/Group 24.png" alt="">
+      <div class="modal-action">
+        <a href="#" class="btn normal-case">Close</a>
+       <a href="#" class="btn btn-error normal-case">Buy Now</a>
+      </div>
+    </div>
+  </div>
+  
+        <!-- deal of the day section ends -->
+  
+        <!-- meet the team section starts -->
+          
+        <section>
+            <div class="hero min-h-screen" style="background-image: url(/images/team.png);">
+              <div class="hero-overlay bg-opacity-60"></div>
+              <div class="hero-content text-center text-neutral-content">
+                <div class="max-w-3xl">
+                  <h1 class="mb-5 text-5xl font-bold text-white">Meet the team</h1>
+                  <p class="mb-5 text-white text-base font-normal">Contrary to popular belief, is not simply random text. It has roots in a piece of classical <br> Latin literature from 45 BC, making it over 2000 years old.</p>
+                 
+                  <div class="flex mt-10">
+                    <div class="w-48 items-center justify-center text-center mr-6">
+                      <img class="mb-8 pl-6" src="./images/member1.png" alt="">
+                      <div class="justify-center">
+                        <h2 class="font-semibold text-xl mb-3">Awlad Hossain</h2>
+                        <p class="font-medium text-base mb-3">Fruits Expert</p>
+                        <div class="flex justify-center">
+                          <img class="mr-2" src="./images/facebook.png" alt="">
+                          <img class="mr-2" src="./images/twitter.png" alt="">
+                          <img src="./images/linkedin.png" alt="">
+                        </div>
+                      </div>
+                    </div>
+        
+                    <div class="w-48 items-center justify-center text-center mr-6">
+                      <img class="mb-8 pl-6" src="./images/member2.png" alt="">
+                      <div class="justify-center">
+                        <h2 class="font-semibold text-xl mb-3">Safia Chowdhury</h2>
+                        <p class="font-medium text-base mb-3">Fruits Expert</p>
+                        <div class="flex justify-center">
+                          <img class="mr-2" src="./images/facebook.png" alt="">
+                          <img class="mr-2" src="./images/twitter.png" alt="">
+                          <img src="./images/linkedin.png" alt="">
+                        </div>
+                     </div>
+                    </div>
+        
+                    <div class="w-48 items-center justify-center text-center mr-6">
+                      <img class="mb-8 pl-6" src="./images/member3.png" alt="">
+                      <div class="justify-center">
+                        <h2 class="font-semibold text-xl mb-3">Rokib Hossain</h2>
+                        <p class="font-medium text-base mb-3">Fruits Expert</p>
+                        <div class="flex justify-center">
+                          <img class="mr-2" src="./images/facebook.png" alt="">
+                          <img class="mr-2" src="./images/twitter.png" alt="">
+                          <img src="./images/linkedin.png" alt="">
+                        </div>
+                      </div>
+                    </div>
+        
+                    <div class="w-48 items-center justify-center text-center">
+                      <img class="mb-8 pl-6" src="./images/member4.png" alt="">
+                      <div class="justify-center">
+                        <h2 class="font-semibold text-xl mb-3">Chaity</h2>
+                        <p class="font-medium text-base mb-3">Fruits Expert</p>
+                        <div class="flex justify-center">
+                          <img class="mr-2" src="./images/facebook.png" alt="">
+                          <img class="mr-2" src="./images/twitter.png" alt="">
+                          <img src="./images/linkedin.png" alt="">
+                        </div>
+                      </div> 
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+        </section>
+        
+        <!-- meet the team section starts -->
+  
+        <!-- why choose us section starts -->
+   
+      <section class="my-24">  
+          <div>
+          <h3 class=" justify-center items-center text-center font-extrabold text-5xl mb-8 text-black">Why Choose Us</h3>
+          <p class=" text-center text-base font-semibold text-stone-600 justify-center items-center">Contrary to popular belief, is not simply random text. It has roots in a piece of classical <br>Latin literature from 45 BC, making it over 2000 years old.</p>
+        </div>
+        <div class="flex mt-10">
+          <div>
+            <div class="flex items-center mb-6">
+              <img class="p-2 btn btn-circle" src="./images/group 1.png" alt="">
+              <div class="pl-3">
+                <h3 class="font-extrabold text-2xl text-black pb-2">Dedicated Team</h3>
+                <hr class="w-24 pb-2">
+                <p class="text-base font-semibold text-stone-600">Professional employees are there for you to pick the most amazing and fresh fruits.</p>
+              </div>
+            </div>
+            <div class="flex items-center mb-6">
+              <img class="p-2 btn btn-circle" src="./images/love 1.png" alt="">
+              <div class="pl-3">
+                <h3 class="font-extrabold text-2xl text-black pb-2">Fresh is Best</h3>
+                <hr class="w-24 pb-2">
+                <p class="text-base font-semibold text-stone-600">Professional employees are there for you to pick the most amazing and fresh fruits.</p>
+              </div>
+            </div>
+            <div class="flex items-center">
+              <img class="p-2 btn btn-circle" src="./images/gift-box 1.png" alt="">
+              <div class="pl-3">
+                <h3 class="font-extrabold text-2xl text-black pb-2">Gift Certificates</h3>
+                <hr class="w-24 pb-2">
+                <p class="text-base font-semibold text-stone-600">Professional employees are there for you to pick the most amazing and fresh fruits.</p>
+              </div>
+            </div>
+          </div>
+  
+        <img class="w-72 mx-5" src="./images/whychoose1.png" alt="">
+  
+        <div class="">
+            <div class="flex items-center mb-6">
+              
+              <div class="pr-3 items-end text-right">
+                <h3 class="font-extrabold text-2xl text-black pb-2">Integrated Supplier</h3>
+                <hr class="w-24 text-right ml-60 pb-2">
+                <p class="text-base font-semibold text-stone-600">Professional employees are there for you to pick the most amazing and fresh fruits.</p>
+              </div>
+              <img class="p-2 btn btn-circle" src="./images/fruit 1.png" alt="">
+            </div>
+            <div class="flex items-center mb-6">
+              
+              <div class="pr-3 text-right">
+                <h3 class="font-extrabold text-2xl text-black pb-2">Sustainable Practice</h3>
+                <hr class="w-24 pb-2 ml-60">
+                <p class="text-base font-semibold text-stone-600">Professional employees are there for you to pick the most amazing and fresh fruits.</p>
+              </div>
+              <img class="p-2 btn btn-circle" src="./images/ice-cream 1.png" alt="">
+            </div>
+            <div class="flex items-center">
+              
+              <div class="pr-3 text-right">
+                <h3 class="font-extrabold text-2xl text-black pb-2">The Benefits Only</h3>
+                <hr class="w-24 pb-2 ml-60">
+                <p class="text-base font-semibold text-stone-600">Professional employees are there for you to pick the most amazing and fresh fruits.</p>
+              </div>
+              <img class="p-2 btn btn-circle" src="./images/like 1.png" alt="">
+            </div>
+          </div>
+        </div>
+      </section>
+   
+        <!-- why choose us section ends -->
+  
+      </main>
+  
+      <!-- footer starts -->
+  
+      <footer class="font-lato mt-5 mx-0">
+        <div class="bg-black py-32">
+          <div class="flex justify-center items-center">
+            <img src="./images/logo.png" alt="">
+            <p class="font-normal text-3xl text-white pl-2">Fruit Burst</p>
+          </div>
+          <div class="">
+            <ul class="flex text-base text-white font-normal py-10 justify-center items-center">
+              <li class="pr-8">Home</li>
+              <li class="pr-8">About Us</li>
+              <li class="pr-8">Shop Now</li>
+              <li class="pr-8">All Fruits</li>
+              <li class="pr-8">Support</li>
+              <li class="pr-8">My Account</li>
+            </ul>
+          </div>
+          <div class="flex justify-center items-center">
+            <img class="pr-6" src="images/twitter 1.svg" alt="">
+            <img class="pr-6" src="images/facebook 1.svg" alt="">
+            <img class="pr-6" src="images/Group 49.svg" alt="">
+            <img class="pr-6" src="images/linkedin 1.svg" alt="">
+            <img class="pr-6" src="images/instagram 1.svg" alt="">
+            <img class="pr-6" src="images/apple 1.svg" alt="">
+          </div>
+        </div>
+      </footer>
+  
+      <!-- footer ends -->
+
+
+    </main>
+
+    <footer>
+
+    </footer>
     
 </body>
 </html>
